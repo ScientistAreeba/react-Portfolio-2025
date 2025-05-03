@@ -14,7 +14,6 @@ import {
   Chip
 } from "@mui/material"
 import SchoolIcon from "@mui/icons-material/School"
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
 import { usePageTitle } from "../../context/PageTitleContext"
 import "./Education.css"
 
@@ -92,8 +91,7 @@ const Education = () => {
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Chip 
-                    icon={<CalendarTodayIcon />} 
+                  <Chip  
                     label={edu.year} 
                     size="small" 
                     sx={{ 
