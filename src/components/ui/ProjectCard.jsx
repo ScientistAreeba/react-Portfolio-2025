@@ -37,12 +37,12 @@ const ProjectCard = ({ project }) => {
       <CardActions>
         {githubLink && (
           <Button size="small" startIcon={<GitHubIcon />} href={githubLink} target="_blank">
-            GitHub
+            GitHub Link
           </Button>
         )}
         {liveLink && (
           <Button size="small" startIcon={<LaunchIcon />} href={liveLink} target="_blank">
-            Live Demo
+            Live Demo Link
           </Button>
         )}
       </CardActions>
