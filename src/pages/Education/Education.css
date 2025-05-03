@@ -1,5 +1,5 @@
 .education-container {
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 5s ease-in-out;
 }
 
 .education-table-container {
@@ -9,7 +9,7 @@
 
 .education-table-container:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(185, 66, 171, 0.2);
 }
 
 @keyframes fadeIn {
@@ -23,7 +23,7 @@
   }
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 600px) {
   .MuiTableCell-root {
     padding: 8px;
