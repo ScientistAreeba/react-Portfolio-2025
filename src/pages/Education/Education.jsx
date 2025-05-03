@@ -1,17 +1,20 @@
 "use client"
 
 import { useEffect } from "react"
-import { Box, Typography, Paper } from "@mui/material"
-import {
-  Timeline,
-  TimelineItem,
-  TimelineSeparator,
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-  TimelineOppositeContent,
-} from "@mui/lab" 
+import { 
+  Box, 
+  Typography, 
+  Table, 
+  TableBody, 
+  TableCell, 
+  TableContainer, 
+  TableHead, 
+  TableRow, 
+  Paper,
+  Chip
+} from "@mui/material"
 import SchoolIcon from "@mui/icons-material/School"
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
 import { usePageTitle } from "../../context/PageTitleContext"
 import "./Education.css"
 
@@ -22,14 +25,13 @@ const Education = () => {
     setPageTitle("Education")
   }, [setPageTitle])
 
-  
   const educationData = [
     {
       id: 1,
       degree: "Bachelor of Science in Computer Science",
-      institution: "Information Technology Univeristy ~ ITU",
+      institution: "Information Technology University ~ ITU",
       year: "2023 - 2027",
-      description: "Studied computer science with a focus on web development and andorid development course",
+      description: "Studied computer science with a focus on web development and android development course",
     },
     {
       id: 2,
@@ -43,7 +45,7 @@ const Education = () => {
       degree: "O-levels",
       institution: "School for Contemporary Learning and Islamic Learning ~ SCIL",
       year: "2018 - 2021",
-      description: "Acheived good grades.",
+      description: "Achieved good grades.",
     },
   ]
 
@@ -56,30 +58,57 @@ const Education = () => {
         Qualification Summary.
       </Typography>
 
-      <Timeline position="alternate">
-        {educationData.map((edu) => (
-          <TimelineItem key={edu.id}>
-            <TimelineOppositeContent color="text.secondary">{edu.year}</TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineDot color="primary">
-                <SchoolIcon />
-              </TimelineDot>
-              {edu.id !== educationData.length && <TimelineConnector />}
-            </TimelineSeparator>
-            <TimelineContent>
-              <Paper elevation={3} sx={{ p: 2 }} className="education-paper">
-                <Typography variant="h6" component="h2">
-                  {edu.degree}
-                </Typography>
-                <Typography variant="subtitle1" color="primary">
-                  {edu.institution}
-                </Typography>
-                <Typography variant="body2">{edu.description}</Typography>
-              </Paper>
-            </TimelineContent>
-          </TimelineItem>
-        ))}
-      </Timeline>
+      <TableContainer component={Paper} elevation={3} className="education-table-container">
+        <Table sx={{ minWidth: 650 }} aria-label="education table">
+          <TableHead>
+            <TableRow sx={{ backgroundColor: 'primary.main' }}>
+              <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: '1rem' }}>Degree</TableCell>
+              <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: '1rem' }}>Institution</TableCell>
+              <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: '1rem' }}>Year</TableCell>
+              <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: '1rem' }}>Description</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {educationData.map((edu, index) => (
+              <TableRow 
+                key={edu.id}
+                sx={{ 
+                  '&:nth-of-type(odd)': { backgroundColor: 'rgba(0, 0, 0, 0.04)' },
+                  '&:hover': { backgroundColor: 'rgba(0, 0, 0, 0.08)', transition: 'background-color 0.3s ease' },
+                  height: '80px',
+                }}
+              >
+                <TableCell component="th" scope="row">
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <SchoolIcon color="primary" />
+                    <Typography variant="subtitle1" fontWeight="medium">
+                      {edu.degree}
+                    </Typography>
+                  </Box>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body1" color="primary.dark">
+                    {edu.institution}
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Chip 
+                    icon={<CalendarTodayIcon />} 
+                    label={edu.year} 
+                    size="small" 
+                    sx={{ 
+                      bgcolor: 'primary.light', 
+                      color: 'primary.contrastText',
+                      fontWeight: 'medium'
+                    }} 
+                  />
+                </TableCell>
+                <TableCell>{edu.description}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </Box>
   )
 }
