@@ -8,6 +8,10 @@ import * as yup from "yup"
 import { usePageTitle } from "../../context/PageTitleContext"
 import "./Contact.css"
 
+import LinkedInIcon from "@mui/icons-material/LinkedIn"
+import GitHubIcon from "@mui/icons-material/GitHub"
+import InstagramIcon from "@mui/icons-material/Instagram"
+
 const validationSchema = yup.object({
   name: yup.string().required("Name is required").min(2, "minimum 2 char length"),
   email: yup.string().email("Enter a valid email").required("Email is required"),
@@ -139,23 +143,54 @@ const Contact = () => {
               </Typography>
               <Typography variant="body1">Lahore, Pakistan</Typography>
             </Box>
-            <Box>
-              <Typography variant="subtitle1" fontWeight="bold">
-                Social Media
-              </Typography>
-              <Box sx={{ display: "flex", gap: 2, mt: 1 }}>
-                {/* Replace with actual social media icons and links */}
-                <Button variant="outlined" size="small">
-                  LinkedIn
-                </Button>
-                <Button variant="outlined" size="small">
-                  GitHub
-                </Button>
-                <Button variant="outlined" size="small">
-                  Twitter
-                </Button>
-              </Box>
+                      <Box>
+            <Typography variant="subtitle1" fontWeight="bold">
+              Social Media
+            </Typography>
+            <Box sx={{ display: "flex", gap: 2, mt: 1 }}>
+              <Button 
+                variant="contained" 
+                size="medium"
+                startIcon={<LinkedInIcon />}
+                href="https://linkedin.com/in/yourprofile" // Replace with your actual LinkedIn URL
+                target="_blank"
+                sx={{ 
+                  bgcolor: "#0077b5", // LinkedIn brand color
+                  "&:hover": { bgcolor: "#006097" }
+                }}
+              >
+                LinkedIn
+              </Button>
+              <Button 
+                variant="contained" 
+                size="medium"
+                startIcon={<GitHubIcon />}
+                href="https://github.com/ScientistAreeba" // Replace with your actual GitHub URL
+                target="_blank"
+                sx={{ 
+                  bgcolor: "#333", // GitHub brand color
+                  "&:hover": { bgcolor: "#2b2b2b" }
+                }}
+              >
+                GitHub
+              </Button>
+              <Button 
+                variant="contained" 
+                size="medium"
+                startIcon={<InstagramIcon />}
+                href="https://instagram.com/yourprofile" // Replace with your actual Instagram URL
+                target="_blank"
+                sx={{ 
+                  background: "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)", // Instagram gradient
+                  "&:hover": { 
+                    background: "linear-gradient(45deg, #e08429 0%, #d25e36 25%, #c9243c 50%, #b9205c 75%, #a9167a 100%)" 
+                  }
+                }}
+              >
+                Instagram
+              </Button>
             </Box>
+          </Box>
           </Paper>
         </Grid>
       </Grid>
