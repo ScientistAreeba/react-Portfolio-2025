@@ -13,12 +13,23 @@
   box-sizing: border-box;
 }
 
+
+[data-theme="dark"] {
+  /* Dark theme variables */
+  --primary-color: #90caf9;
+  --secondary-color: #f48fb1;
+  --text-color: #e0e0e0;
+  --background-color: #121212;
+  --card-background: #1e1e1e;
+}
+
 body {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-color);
   color: var(--text-color);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 a {
@@ -61,3 +72,4 @@ a {
   white-space: nowrap;
   border-width: 0;
 }
+
