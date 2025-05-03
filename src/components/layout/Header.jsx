@@ -1,15 +1,31 @@
+
+
 "use client"
 
 import { useState } from "react"
-import { AppBar, Toolbar, Typography, IconButton, Avatar, Menu, MenuItem, Box } from "@mui/material"
+import { 
+  AppBar, 
+  Toolbar, 
+  Typography, 
+  IconButton, 
+  Avatar, 
+  Menu, 
+  MenuItem, 
+  Box,
+  Tooltip
+} from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
+import Brightness4Icon from "@mui/icons-material/Brightness4" 
+import Brightness7Icon from "@mui/icons-material/Brightness7" 
 import { usePageTitle } from "../../context/PageTitleContext"
-
+import { useTheme } from "../../context/ThemeContext" 
 
 import profileImage from "../../assets/images/icon.png"
 
+
 const Header = ({ toggleDrawer }) => {
   const { pageTitle } = usePageTitle()
+  const { themeMode, toggleTheme } = useTheme() 
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
 
@@ -30,6 +46,19 @@ const Header = ({ toggleDrawer }) => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           {pageTitle}
         </Typography>
+        
+        /* Theme Toggle Button */
+        <Tooltip title={`Switch to ${themeMode === 'light' ? 'dark' : 'light'} mode`}>
+          <IconButton 
+            color="inherit" 
+            onClick={toggleTheme} 
+            sx={{ mr: 2 }}
+            aria-label="toggle theme"
+          >
+            {themeMode === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
+          </IconButton>
+        </Tooltip>
+        
         <Box>
           <IconButton
             onClick={handleClick}
@@ -38,7 +67,7 @@ const Header = ({ toggleDrawer }) => {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-             <Avatar alt="Areeba Atif" src={profileImage}/>
+              <Avatar alt="myPic" src={profileImage}/>
           </IconButton>
           <Menu
             id="account-menu"
