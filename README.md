@@ -16,6 +16,8 @@ This is a responsive **Personal Portfolio** built using **React**, **React Route
 - Projects 
 - Contact 
 
+## Screenshots
+
 ## Component Design
 
 - Responsive design
