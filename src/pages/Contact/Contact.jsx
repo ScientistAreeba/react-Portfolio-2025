@@ -35,8 +35,8 @@ const Contact = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values, { resetForm }) => {
-      // In a real application, you would send the form data to a server
-      console.log("Form submitted:", values)
+      
+      console.log("Form has been submitted:", values)
       setSubmitted(true)
       resetForm()
       setTimeout(() => setSubmitted(false), 5000)
@@ -49,12 +49,12 @@ const Contact = () => {
         Contact Me
       </Typography>
       <Typography variant="body1" paragraph>
-        Feel free to reach out to me using the form below or through my social media profiles.
+        Feel free to reach out to me using the form provided and Inshallah, I will get back to you.
       </Typography>
 
       {submitted && (
         <Alert severity="success" sx={{ mb: 3 }}>
-          Thank you for your message! I will get back to you.
+          Thank you!
         </Alert>
       )}
 
@@ -68,7 +68,7 @@ const Contact = () => {
                     fullWidth
                     id="name"
                     name="name"
-                    label="Name"
+                    label="Full Name"
                     value={formik.values.name}
                     onChange={formik.handleChange}
                     error={formik.touched.name && Boolean(formik.errors.name)}
@@ -80,7 +80,7 @@ const Contact = () => {
                     fullWidth
                     id="email"
                     name="email"
-                    label="Email"
+                    label="Email Address"
                     value={formik.values.email}
                     onChange={formik.handleChange}
                     error={formik.touched.email && Boolean(formik.errors.email)}
@@ -102,7 +102,7 @@ const Contact = () => {
                     fullWidth
                     id="message"
                     name="message"
-                    label="Message"
+                    label="Message details"
                     multiline
                     rows={4}
                     value={formik.values.message}
@@ -113,7 +113,7 @@ const Contact = () => {
                 </Grid>
                 <Grid item xs={12}>
                   <Button type="submit" variant="contained" color="primary" endIcon={<SendIcon />} fullWidth>
-                    Send Message
+                    Send
                   </Button>
                 </Grid>
               </Grid>
@@ -123,13 +123,13 @@ const Contact = () => {
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 3, height: "100%" }} className="contact-info-paper">
             <Typography variant="h5" gutterBottom>
-              Contact Information
+              Here is the Contact Information and other platforms links.
             </Typography>
             <Box sx={{ mb: 2 }}>
               <Typography variant="subtitle1" fontWeight="bold">
                 Email
               </Typography>
-              <Typography variant="body1">areebaaatif6@gmail.com</Typography>
+              <Typography variant="body1">areebaaatif0@gmail.com</Typography>
             </Box>
             <Box sx={{ mb: 2 }}>
               <Typography variant="subtitle1" fontWeight="bold">
@@ -152,10 +152,10 @@ const Contact = () => {
                 variant="contained" 
                 size="medium"
                 startIcon={<LinkedInIcon />}
-                href="https://linkedin.com/in/yourprofile" // Replace with your actual LinkedIn URL
+                href="https://www.linkedin.com/in/areebaaatif/" 
                 target="_blank"
                 sx={{ 
-                  bgcolor: "#0077b5", // LinkedIn brand color
+                  bgcolor: "#0077b5", 
                   "&:hover": { bgcolor: "#006097" }
                 }}
               >
@@ -165,10 +165,10 @@ const Contact = () => {
                 variant="contained" 
                 size="medium"
                 startIcon={<GitHubIcon />}
-                href="https://github.com/ScientistAreeba" // Replace with your actual GitHub URL
+                href="https://github.com/ScientistAreeba" 
                 target="_blank"
                 sx={{ 
-                  bgcolor: "#333", // GitHub brand color
+                  bgcolor: "#333", 
                   "&:hover": { bgcolor: "#2b2b2b" }
                 }}
               >
@@ -178,7 +178,7 @@ const Contact = () => {
                 variant="contained" 
                 size="medium"
                 startIcon={<InstagramIcon />}
-                href="https://instagram.com/yourprofile" // Replace with your actual Instagram URL
+                href="https://www.instagram.com/areeba__atif?igsh=MWV0bjF5bHptMXU5ag==" 
                 target="_blank"
                 sx={{ 
                   background: "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)", // Instagram gradient
