@@ -4,6 +4,12 @@ import { useEffect } from "react"
 import { Box, Typography, Grid } from "@mui/material"
 import ProjectCard from "../../components/ui/ProjectCard"
 import { usePageTitle } from "../../context/PageTitleContext"
+
+import geneLensImage from "../../assets/images/gene.jpg"
+import weatherAppImage from "../../assets/images/weather.png"
+import islamicologyImage from "../../assets/images/logo.png"
+import portfolioImage from "../../assets/images/portfolio.png"
+
 import "./Projects.css"
 
 const Projects = () => {
@@ -13,53 +19,48 @@ const Projects = () => {
     setPageTitle("Projects")
   }, [setPageTitle])
 
-  // Sample project data - replace with your actual projects
+  
   const projects = [
     {
       id: 1,
-      title: "E-commerce Website",
-      description: "A fully responsive e-commerce platform built with React and Node.js",
-      image: "https://via.placeholder.com/300x200",
-      technologies: ["React", "Node.js", "MongoDB", "Express"],
-      githubLink: "https://github.com",
-      liveLink: "https://example.com",
+      title: "GeneLens",
+      description: "A distributed DNA analysis system where the concepts of Protien folding are applied to detect genetic disesase.",
+      image: geneLensImage, 
+      technologies: ["C++", "SQL", "OpenCV", "Socket Programming"],
+      githubLink: "https://github.com/ScientistAreeba/GeneLens",
     },
     {
       id: 2,
-      title: "Weather App",
-      description: "A weather application that shows current weather and forecasts",
-      image: "https://via.placeholder.com/300x200",
-      technologies: ["React", "OpenWeather API", "CSS"],
-      githubLink: "https://github.com",
-      liveLink: "https://example.com",
+      title: "Islamicology Android App",
+      description: "An engaging islamic learning app for beginners to understand and incorporate their deen in their daily lives.",
+      image: islamicologyImage, 
+      technologies: ["Java", "Android Studio", "Google Firebase"],
     },
     {
       id: 3,
-      title: "Task Manager",
-      description: "A task management application with drag and drop functionality",
-      image: "https://via.placeholder.com/300x200",
-      technologies: ["React", "Firebase", "Material UI"],
-      githubLink: "https://github.com",
-      liveLink: "https://example.com",
+      title: "Portfolio Website",
+      description: "A personal portfolio website built with simple html and css as a start of web dev course to learn the basics.",
+      image: portfolioImage, 
+      technologies: ["HTML", "CSS"],
+      githubLink: "https://github.com/ScientistAreeba/Portfolio-2025",
+      liveLink: "https://scientistareeba.github.io/Portfolio-2025/",
     },
     {
       id: 4,
-      title: "Portfolio Website",
-      description: "A personal portfolio website built with React and Material UI",
-      image: "https://via.placeholder.com/300x200",
-      technologies: ["React", "Material UI", "CSS"],
-      githubLink: "https://github.com",
-      liveLink: "https://example.com",
+      title: "Weather App",
+      description: "A weather application that shows current weather and forecasts as requested by the user according to location(city)",
+      image: weatherAppImage, 
+      technologies: ["Java", "OpenWeather API", "Flutter"],
     },
-  ]
+  ];
 
   return (
     <Box className="projects-container">
       <Typography variant="h4" component="h1" gutterBottom>
-        My Projects
+        Projects
       </Typography>
       <Typography variant="body1" paragraph>
-        Here are some of the projects I've worked on. Click on the cards to learn more.
+        These are some of my personal projects that I have worked on to develop my skills and apply what I have learn through courses.
       </Typography>
       <Grid container spacing={3}>
         {projects.map((project) => (
