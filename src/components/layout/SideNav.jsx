@@ -1,19 +1,19 @@
 "use client"
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, useTheme, useMediaQuery } from "@mui/material"
 import { Link, useLocation } from "react-router-dom"
-import HomeIcon from "@mui/icons-material/Home"
+import PublicIcon	 from "@mui/icons-material/Public"
 import SchoolIcon from "@mui/icons-material/School"
-import WorkIcon from "@mui/icons-material/Work"
-import ContactMailIcon from "@mui/icons-material/ContactMail"
+import BuildIcon from '@mui/icons-material/Build';
+import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 import { usePageTitle } from "../../context/PageTitleContext"
 
 const drawerWidth = 240
 
 const navItems = [
-  { text: "Home", icon: <HomeIcon />, path: "/" },
+  { text: "About", icon: <PublicIcon />, path: "/" },
   { text: "Education", icon: <SchoolIcon />, path: "/education" },
-  { text: "Projects", icon: <WorkIcon />, path: "/projects" },
-  { text: "Contact", icon: <ContactMailIcon />, path: "/contact" },
+  { text: "Projects", icon: <BuildIcon />, path: "/projects" },
+  { text: "Contact", icon: <ChatBubbleIcon />, path: "/contact" },
 ]
 
 const SideNav = ({ open, onClose }) => {
