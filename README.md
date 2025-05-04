@@ -18,6 +18,10 @@ This is a responsive **Personal Portfolio** built using **React**, **React Route
 
 ## Screenshots
 
+![image](https://github.com/user-attachments/assets/d2ca0ab5-c30c-447d-a8de-672c0f577d85)
+![image](https://github.com/user-attachments/assets/c0ad1944-3a57-4f5c-bf87-b933d68c31b1)
+
+
 ## Component Design
 
 - Responsive design
