@@ -1,15 +1,14 @@
+
 import { Suspense, lazy } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import { ThemeProvider } from "@mui/material/styles"
-import CssBaseline from "@mui/material/CssBaseline"
 import CircularProgress from "@mui/material/CircularProgress"
 import Box from "@mui/material/Box"
 
 import MainLayout from "./components/layout/MainLayout"
 import { PageTitleProvider } from "./context/PageTitleContext"
-import theme from "./styles/theme"
+import { ThemeProvider } from "./context/ThemeContext" 
 
-// Lazy load pages for better performance
+//lazy load pages 
 const Home = lazy(() => import("./pages/Home/Home"))
 const Education = lazy(() => import("./pages/Education/Education"))
 const Projects = lazy(() => import("./pages/Projects/Projects"))
@@ -17,8 +16,7 @@ const Contact = lazy(() => import("./pages/Contact/Contact"))
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <ThemeProvider> 
       <PageTitleProvider>
         <Router>
           <MainLayout>
