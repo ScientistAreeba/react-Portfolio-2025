@@ -1,5 +1,3 @@
-
-
 "use client"
 
 import { useState } from "react"
@@ -38,7 +36,13 @@ const Header = ({ toggleDrawer }) => {
   }
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed"
+    sx={{ 
+      background: (theme) => 
+        theme.palette.mode === 'light' 
+          ? "linear-gradient(45deg, #673ab7 30%, #e91e63 90%)" 
+          : "linear-gradient(45deg, #4527a0 30%, #ad1457 90%)" 
+    }}>
       <Toolbar>
         <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={toggleDrawer} sx={{ mr: 2 }}>
           <MenuIcon />
@@ -47,7 +51,7 @@ const Header = ({ toggleDrawer }) => {
           {pageTitle}
         </Typography>
         
-        /* Theme Toggle Button */
+        {/* Theme Toggle Button */}
         <Tooltip title={`Switch to ${themeMode === 'light' ? 'dark' : 'light'} mode`}>
           <IconButton 
             color="inherit" 
@@ -78,7 +82,6 @@ const Header = ({ toggleDrawer }) => {
             anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
           >
             <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>Settings</MenuItem>
             <MenuItem onClick={handleClose}>Logout</MenuItem>
           </Menu>
         </Box>
