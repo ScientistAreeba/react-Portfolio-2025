@@ -10,7 +10,7 @@ import { usePageTitle } from "../../context/PageTitleContext"
 const drawerWidth = 240
 
 const navItems = [
-  { text: "About", icon: <PublicIcon />, path: "/" },
+  { text: "Home", icon: <PublicIcon />, path: "/" },
   { text: "Education", icon: <SchoolIcon />, path: "/education" },
   { text: "Projects", icon: <BuildIcon />, path: "/projects" },
   { text: "Contact", icon: <ChatBubbleIcon />, path: "/contact" },
@@ -64,7 +64,11 @@ const SideNav = ({ open, onClose }) => {
       variant={isMobile ? "temporary" : "persistent"}
       open={open}
       onClose={onClose}
+      ModalProps={{
+        keepMounted: true, 
+      }}
       sx={{
+        display: { xs: "block", sm: "block" },
         width: drawerWidth,
         flexShrink: 0,
         "& .MuiDrawer-paper": {
