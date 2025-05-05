@@ -11,13 +11,13 @@ const MainLayout = ({ children }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const [drawerOpen, setDrawerOpen] = useState(!isMobile)
 
-  
+  // Update drawer state when screen size changes
   useEffect(() => {
     setDrawerOpen(!isMobile)
   }, [isMobile])
 
   const toggleDrawer = () => {
-    setDrawerOpen(!drawerOpen)
+    setDrawerOpen((prevState) => !prevState)
   }
 
   return (
@@ -29,21 +29,19 @@ const MainLayout = ({ children }) => {
           component="main"
           sx={{
             flexGrow: 1,
-            display: "flex",
-            flexDirection: "column",
             p: 3,
-            width: { sm: `calc(100% - ${drawerOpen ? 240 : 0}px)` },
-            ml: { sm: drawerOpen ? "240px" : 0 },
+            width: { sm: `calc(100% - ${drawerOpen && !isMobile ? 240 : 0}px)` },
+            ml: { sm: drawerOpen && !isMobile ? "240px" : 0 },
             transition: theme.transitions.create(["margin", "width"], {
               easing: theme.transitions.easing.sharp,
               duration: theme.transitions.duration.leavingScreen,
             }),
           }}
         >
-          <Box sx={{ mt: 8, mb: 8, flex: 1 }}>{children}</Box>
+          <Box sx={{ mt: 8, mb: 8 }}>{children}</Box>
         </Box>
       </Box>
-      <Footer drawerOpen={drawerOpen} drawerWidth={240} />
+      <Footer />
     </Box>
   )
 }
