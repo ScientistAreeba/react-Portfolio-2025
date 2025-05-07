@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Box, useMediaQuery, useTheme } from "@mui/material"
 import Header from "./Header"
 import SideNav from "./SideNav"
@@ -11,13 +11,8 @@ const MainLayout = ({ children }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const [drawerOpen, setDrawerOpen] = useState(!isMobile)
 
-  // Update drawer state when screen size changes
-  useEffect(() => {
-    setDrawerOpen(!isMobile)
-  }, [isMobile])
-
   const toggleDrawer = () => {
-    setDrawerOpen((prevState) => !prevState)
+    setDrawerOpen(!drawerOpen)
   }
 
   return (
@@ -30,8 +25,8 @@ const MainLayout = ({ children }) => {
           sx={{
             flexGrow: 1,
             p: 3,
-            width: { sm: `calc(100% - ${drawerOpen && !isMobile ? 240 : 0}px)` },
-            ml: { sm: drawerOpen && !isMobile ? "240px" : 0 },
+            width: { sm: `calc(100% - ${drawerOpen ? 240 : 0}px)` },
+            ml: { sm: drawerOpen ? "240px" : 0 },
             transition: theme.transitions.create(["margin", "width"], {
               easing: theme.transitions.easing.sharp,
               duration: theme.transitions.duration.leavingScreen,
