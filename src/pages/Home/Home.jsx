@@ -5,7 +5,6 @@ import { Box, Typography, Grid, Avatar, Paper, LinearProgress } from "@mui/mater
 import { usePageTitle } from "../../context/PageTitleContext"
 import CodeIcon from "@mui/icons-material/Code"
 import JavascriptIcon from "@mui/icons-material/Javascript"
-import HtmlIcon from "@mui/icons-material/Html"
 import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver"
 import DataObjectIcon from "@mui/icons-material/DataObject"
 import "./Home.css"
